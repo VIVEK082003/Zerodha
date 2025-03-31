@@ -114,12 +114,15 @@ const WatchListItem = ({ stock }) => {
     <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="item">
         <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
-        <div className="itemInfo">
+        <div
+          className="itemInfo"
+          style={{ display: "flex", alignItems: "center", important: true }}
+        >
           <span className="percent">{stock.percent}</span>
           {stock.isDown ? (
             <KeyboardArrowDown className="down" />
           ) : (
-            <KeyboardArrowUp className="down" />
+            <KeyboardArrowUp className="up" />
           )}
           <span className="price">{stock.price}</span>
         </div>
@@ -138,7 +141,7 @@ const WatchListActions = ({ uid }) => {
 
   return (
     <span className="actions">
-      <span>
+      <span style={{ display: "flex", important: true }}>
         <Tooltip
           title="Buy (B)"
           placement="top"
